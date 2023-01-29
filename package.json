@@ -2,5 +2,11 @@
   "name": "Ezekiel_saturday-sdk",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "typescript": "^4.9.4"
+  }
 }
