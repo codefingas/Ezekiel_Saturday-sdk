@@ -27,21 +27,21 @@ const TheOneApi = (config: TheOneApiConfig) => {
     /**
      * Requests the list of all movies, including the "The Lord of the Rings" and the "The Hobbit" trilogies
      * 
-     * @returns Array of Movies
+     * @returns Array of Movies  and a status code
      */
-    const getMovies = async (): Promise<MoviesType[]> => {
-        const { docs } = await get<{ docs: MoviesType[], total: number; limit: Number; offset: number; page: number; pages: number }>("/", accessToken);
-        return docs;
+    const getMovies = async (): Promise<{docs: MoviesType[]; status: number}> => {
+        const { data: {docs}, status } = await get<{ docs: MoviesType[], total: number; limit: Number; offset: number; page: number; pages: number }>("/", accessToken);
+        return {docs, status};
     };
 
     /**
      * Requests one specific movie
      * 
      * @param id - id of movie to retrieve
-     * @returns an Array with a single movie
+     * @returns an Array with a single movie and a status code
      */
-    const getOneMovie = async (id: string): Promise<MoviesType[]> => {
-        const { docs } = await get<{ docs: MoviesType[], total: number; limit: Number; offset: number; page: number; pages: number }>(`/${id}`, accessToken);
+    const getOneMovie = async (id: string): Promise<{docs: MoviesType[]; status: number}> => {
+        const { data: {docs}, status }= await get<{ docs: MoviesType[], total: number; limit: Number; offset: number; page: number; pages: number }>(`/${id}`, accessToken);
         return docs;
     };
 
@@ -49,10 +49,11 @@ const TheOneApi = (config: TheOneApiConfig) => {
     /**
      * Request all movie quotes for one specific movie (only working for the LotR trilogy)
      * @param id - id of movie quote to retrieve
+     * @returns an array with of movie quotes and a status code
      */
-    const getMovieQuotes = async (id: string): Promise<MoviesType[]> => {
-        const { docs } = await get<{ docs: MoviesType[], total: number; limit: Number; offset: number; page: number; pages: number }>(`/${id}/quote`, accessToken);
-        return docs;
+    const getMovieQuotes = async (id: string): Promise<{docs: MoviesType[]; status: number}> => {
+        const { data: {docs}, status }= await get<{ docs: MoviesType[], total: number; limit: Number; offset: number; page: number; pages: number }>(`/${id}/quote`, accessToken);
+        return {docs, status};
     };
 
 

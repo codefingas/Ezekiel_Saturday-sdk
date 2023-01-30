@@ -28,7 +28,7 @@ const headers = (accessToken: string) => ({ headers: { Authorization: `Bearer ${
  * @param accessToken access token for the one api
  * @returns Promise which resolves with data
  */
-export const get = async<T>(url: string, accessToken: string): Promise<T> => {
-    const { data } = await axios.get(`${baseUrl()}${url}`, headers(accessToken));
-    return data;
+export const get = async<T>(url: string, accessToken: string): Promise<{ data: any; status: number; }> => {
+    const { data, status } = await axios.get(`${baseUrl()}${url}`, headers(accessToken));
+    return {data, status};
 };
