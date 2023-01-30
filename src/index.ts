@@ -34,22 +34,33 @@ const TheOneApi = (config: TheOneApiConfig) => {
         return docs;
     };
 
-  /**
-   * Requests one specific movie
-   * 
-   * @param id - id of movie to retrieve
-   * @returns an Array with a single movie
-   */
+    /**
+     * Requests one specific movie
+     * 
+     * @param id - id of movie to retrieve
+     * @returns an Array with a single movie
+     */
     const getOneMovie = async (id: string): Promise<MoviesType[]> => {
         const { docs } = await get<{ docs: MoviesType[], total: number; limit: Number; offset: number; page: number; pages: number }>(`/${id}`, accessToken);
         return docs;
     };
 
-    
+
+    /**
+     * Request all movie quotes for one specific movie (only working for the LotR trilogy)
+     * @param id - id of movie quote to retrieve
+     */
+    const getMovieQuotes = async (id: string): Promise<MoviesType[]> => {
+        const { docs } = await get<{ docs: MoviesType[], total: number; limit: Number; offset: number; page: number; pages: number }>(`/${id}/quote`, accessToken);
+        return docs;
+    };
+
+
 
     return {
         getMovies,
-        getOneMovie
+        getOneMovie,
+        getMovieQuotes
     };
 };
 
