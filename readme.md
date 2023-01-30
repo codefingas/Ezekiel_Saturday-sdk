@@ -6,7 +6,7 @@ This SDK provides a convenient way to access the "The One API" (https://the-one-
 To install the The One API SDK, simply run the following command in your project directory:
 
 ```shell
-npm install Ezekiel_Saturday-sdk
+npm install ezekiel-saturday-sdk
 ```
 
 ## Usage
@@ -53,12 +53,12 @@ describe('The One API SDK', () => {
   });
 
   it('should get a movie by id', async () => {
-    const response = await theOneApi.getMovieById('id');
+    const response = await theOneApi.getOneMovie('id');
     expect(response.status).toEqual(200);
   });
 
-  it('should search movies', async () => {
-    const response = await theOneApi.searchMovies('query');
+  it("should get movie's quotes", async () => {
+    const response = await theOneApi.getMovieQuotes('id');
     expect(response.status).toEqual(200);
   });
 });
