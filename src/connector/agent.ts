@@ -21,6 +21,13 @@ const baseUrl = () => `https://the-one-api.dev/v2/movies`;
 
 const headers = (accessToken: string) => ({ headers: { Authorization: `Bearer ${accessToken}` } });
 
+
+/**
+ * 
+ * @param url string url to route
+ * @param accessToken access token for the one api
+ * @returns Promise which resolves with data
+ */
 export const get = async<T>(url: string, accessToken: string): Promise<T> => {
     const { data } = await axios.get(`${baseUrl()}${url}`, headers(accessToken));
     return data;
