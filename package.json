@@ -1,12 +1,14 @@
 {
-  "name": "Ezekiel_saturday-sdk",
+  "name": "ezekiel-saturday-sdk",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "docs": "typedoc"
+    "docs": "typedoc",
+    "clean": "rimraf dist*",
+    "prepublish": "yarn run clean && yarn run build"
   },
   "dependencies": {
     "axios": "^1.2.6",
