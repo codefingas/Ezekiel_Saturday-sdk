@@ -14,7 +14,7 @@ npm install Ezekiel_Saturday-sdk
 To use the SDK, simply import it into your file:
 
 ```typescript
-import TheOneApi from 'Ezekiel_Saturday-sdk';
+import TheOneApi from 'ezekiel-saturday-sdk';
 ```
 
 You need an access token to make requests to the "The One API".  You can obtain an access token by signing up for an account [here](https://the-one-api.dev/sign-up). All you need for setting up an account is a valid email address.
@@ -32,7 +32,7 @@ async function main() {
   console.log(movie.data);
 
   const quotes = await theOneApi.getMovieQuotes('id');
-  console.log(getMovieQuotes.data);
+  console.log(quotes.data);
 }
 
 main();
@@ -44,7 +44,7 @@ main();
 You can test the SDK by importing it into a test file and using the jest library to run tests against the API. Here is an example test file:
 
 ```typescript
-import theOneApi from 'Ezekiel_Saturday-sdk';
+import theOneApi from 'ezekiel-saturday-sdk';
 
 describe('The One API SDK', () => {
   it('should get all movies', async () => {
