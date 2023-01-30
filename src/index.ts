@@ -25,6 +25,7 @@ const TheOneApi = (config: TheOneApiConfig) => {
     const { accessToken } = config;
 
     /**
+     * Requests the list of all movies, including the "The Lord of the Rings" and the "The Hobbit" trilogies
      * 
      * @returns Array of Movies
      */
@@ -34,6 +35,7 @@ const TheOneApi = (config: TheOneApiConfig) => {
     };
 
   /**
+   * Requests one specific movie
    * 
    * @param id - id of movie to retrieve
    * @returns an Array with a single movie
@@ -42,6 +44,8 @@ const TheOneApi = (config: TheOneApiConfig) => {
         const { docs } = await get<{ docs: MoviesType[], total: number; limit: Number; offset: number; page: number; pages: number }>(`/${id}`, accessToken);
         return docs;
     };
+
+    
 
     return {
         getMovies,
