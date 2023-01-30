@@ -72,3 +72,9 @@ npm run test
 
 ## Conclusion
 With this SDK, you can easily access the movie endpoints of "The One API" in a project. The SDK is easy to install, use, and test, making it a convenient solution for any project that requires access to this API.
+
+## Contributing
+We welcome contributions to the The One API SDK. If you find a bug or would like to make a feature request, please open an issue on the repository's issue tracker.
+
+## License
+The One API SDK is licensed under the MIT license.
