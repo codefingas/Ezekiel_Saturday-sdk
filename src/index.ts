@@ -33,9 +33,19 @@ const TheOneApi = (config: TheOneApiConfig) => {
         return docs;
     };
 
+  /**
+   * 
+   * @param id - id of movie to retrieve
+   * @returns an Array with a single movie
+   */
+    const getOneMovie = async (id: string): Promise<MoviesType[]> => {
+        const { docs } = await get<{ docs: MoviesType[], total: number; limit: Number; offset: number; page: number; pages: number }>(`/${id}`, accessToken);
+        return docs;
+    };
 
     return {
-        getMovies
+        getMovies,
+        getOneMovie
     };
 };
 
