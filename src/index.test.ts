@@ -1,9 +1,9 @@
+import { describe, it, expect, jest} from '@jest/globals';
 import TheOneApi from "./index";
 
 jest.mock("./index.ts");
-jest.mocked("./connector/agent.ts");
 
-const MockedTheOneApi = TheOneApi as jest.MockedFunctionDeep<typeof TheOneApi>;
+const MockedTheOneApi = TheOneApi as jest.MockedFunction<typeof TheOneApi>;
 const mockGetMovies = jest.fn();
 const mockGetOneMovie = jest.fn(x => x);
 const mockGetMovieQuotes = jest.fn(x => x)
