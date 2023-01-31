@@ -17,7 +17,7 @@ axiosRetry(axios, {
     retryCondition: (error) => isNetworkOrIdempotentRequestError(error) || error?.response?.status == 429
 });
 
-const baseUrl = () => `https://the-one-api.dev/v2/movies`;
+const baseUrl = () => `https://the-one-api.dev/v2/movie`;
 
 const headers = (accessToken: string) => ({ headers: { Authorization: `Bearer ${accessToken}` } });
 
